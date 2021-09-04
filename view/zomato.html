@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝙯𝙤𝙢𝙖𝙩𝙤</title>
+    <link href="/view/zomato.css" type="text/css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" src="css/style.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+</head>
+
+<body>
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap pt-2 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-2 md:mb-0">
+                <div class="logo"><img width="50ppx"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAq1BMVEXqITD////qHy7pHCzuHi7+9fb2JDTyFSjoHy774uTpGCjpABr+8vPtESXtGSroAAD4wcX6ys760dT85+j4UFv4DSTzKDf3ABb++vr2fIP3Gy3pECP6rrP61tn4dHzzABjyV2H4ub32h47sLjz0j5XoAA37QU32nqT2srX4dn77PEn7p632jZT3Ulv0QE74b3fsOEbuXGX2ZnHtQ07qKzf6LDvsNEHxgYbsQUqOuzwpAAANN0lEQVR4nOWda3eiPBSFaQAzEEAuMmpRAcXBO1pb2///ywaqVq2ISQgC7f40q9P1Tp4310PO2eGeClVHtCzJ1HtBN/K26xH3KTBab72oG/R0U7IssVNsE7ji/tNKPyabtmYCQjaEUBMEwB0EBC3+iY2QMGsNYtK+UlwzCiLsGGHX+/cGVVU7caUoRo1/5e2f1w2NgvqSPaFomYuW6tpQ4LPYzjEBL0DbVVsL0xKZt4cxoWhOpis1HpF4bBeKR666mk5MxpBMCaVwM2uomcPyTm8KamO2CSWWjWJGKErznWtr9HRflJrt7uYSs55kRGj5g5Gt5aY7SrNHA99i0zQmhNZiGQ9OZnyJ4uG6XDBhzE8oGi/IzjH3bgkINnox8g/WvISKH0HIHu8ACWHk5z0M5CT0vQaDxSWDUWt4fnmE4mTlFsq3Z3RXkzxjNQehHjFcPbOk2ZFeAqEUvRXef0cB7S2iPgVQEkpDu7D1JZUR2kNKRirCjr96KN+eceVTRR80hNKg8ZgJeCmtMaDpRnJCce7CPyUActwf6M7JV1ViQjOCbM9nJBJgZBZN6M8ePgPPBeDML5RQGth8iXyJeJtwNhIRmitYMl8iuCIaqSSEk1kZS+i1tNmkEEIxcsseoUfxboS/pmITSpFdNtiZbPxTHC5hv1WFKXgSbPXZEurtakzBk7Q2ZryBRzj/W94uf0vC3zk7wqBRPcAYsREwIuwM22UeY24LtIcY0cZ9ws7wuWyUm3rGQLxP2H2uZg8mAs/d3ISdrls2Rqbc7r1evENY5SG6192BeodwWOEhuhd4HuYhDNplA2Conb1pZBLOG1XvwUSgkbn1ZxHqFTzJpEn4m3WAyyDst+sBGCO2M47htwmlVtUO27eltW4HUzcJxaha4VK24O2Q+CZhpQLe+7IjUsJJtY8y13Jvfbu5QdifVeWbDK742Y3VJp1QWqllt5hY6ip9tUknnNZplTkKTvEJ/bpNwr1cH5fQrN0k3IufpX0MTyEUB3Uco4ngIGVXTCHslXq7lEcA9nAIrdocR68ltK8Txa4IO7Udo4ng4CrivyL0G+VcYbPRn4Z/j1Ba1SeiSJN2te9/JxzWeYwmgt8/23wjtOz6LjN7AdvKJKxVUJguGGUR6m913QpPAm/6bUIxql9IcS31Mt6/IPRR2a1jIuTfJKz5TnGUtrpFWNOg6VoXYdQZoeL9jC6MO9FTUgnrfV4718XZ7UQoDn7CQrqXehYongiN2oaF1wLQSCF8qf9x5iT4ck2ouD+nC+NORMoV4aJeX/HvyV58J7SWdQ8qLiUsrW+Efi2ue/EFvjYM7jFbBQA8L8uyc1T8Zx63EJpOXxvGgVAaFTZIAe8ghByZ2229zSZKtPGW2x0no8+fF/T1WRhJF4TzQrYKIDvj5ljbRouJ0Zcsy1KOiv8s9Y1JOFiOULMZc7LvTzi/INwxP5LGdM6rNw30e6WuSn8yjJav8chlO2y13TmhxDqqkJG6fu8Z2IW8ljEJPI5tX7rSGWHIdDPkURMMDYuwDqujSP4L10TMIO3wRNjZsBukwHHWQyOTJUv9xeYVsVl9tI34RWjOWP1/Aw7a9PJZIihG6DmIASPYX7Z9Ek4YJSACp7nUGRixKGaExvlH6/PkSChO2Wz3jryhH57fJPY83snZkepUPBBaKxbbPT/2ctVcf5fid1UnVz8KK+tAaKoMpqEzHrI2ChLNzRjlaBpQzQMhg9sYHr3g1rAQqR9xOfrx85YmIcyfoifLi6KcnvRoLNM2S9seCFHeaejIJOVyhBJ73JiyGwW0JzTyHtmcNVNToCspgezQtcw1PgnzHtnQppApeC7fo1txkoNbTNjNt9Agj5EZUJaUYZNmNsJuQqh4uaYhWhbPl8j/oBipyed97qn/L8/RAW2KnYMnSRH5gsP/68eEue590fZRgMn9bZO0L5L7YO6pRz8NAVqy98jL0JwnRYS9J64T0B+7UfSAReZcPiJcb9TgiaP/jgia0wItK9M1IUTUpiJn0Z7ZZB6rSJWx9FciRK1lcdaMbrNwdgWe1LIQxyRzUZhZnERlJgfGu8ctopcKSTYNIEicSZFhApzXMkboEZEknkImp5MTysgj9sFhKHFK0GSkcz3SczePnPDBm8Q3KSr+amP3uIBsw+edUffhe8R3mQB7tYEB905CKCN+UeYAPSrAPoXDdw4/35J3mtp7v2D3bTwpS9xxCiMOLxEKyA7aRb1K4CUym5jrqeZx2/sbPpARGkVzszJ8sSLM9VTYcussQsB/3nGOBhOr9OXlUn3M2xthzY1SuGKw/ZX7n7U3CFhZFjNVZ4G52IwSHsB/phEkUOhTDj/62AyGc79Qw/t8Mjjck02z2Rwj1ZHB62i93ETdRTjRTUmylKLfLMgpcYO7Y/RjmKrTpGo+xiQsu6HUknBjjLIbSi+AueuX3U564U7EGs7Ag94xN/36EgZYhKMaj9IQhzA+05TdTnrhEW5rTDjEIYxji7LbSS+stTSOD8tuJ71GOPthHOMffr3T6YjHvM9+3zBMQzdMqbLn7lgK1pkGBlyvMeK15F0pNYkqxrGaJyFttwn0aoLinUvtHuePk8BJjgMoPg6j4lDq/O9BHFIhxG2qGCNGWEcapGN88wa848jLd2Ypa2xkjrCCfGRi3lsAGTW3vQp1ZGeBdaJJ7i3w754cVCFGCe+WLbl7Irg/BLKzTDEPKUVdvGN3cn9IdgcsN0u9lPmS2cRrrzoVie/xndfgodkJqVI8zNhQDTrkuRg8on/VhpVC3K9QSS4GRT4Nkv1yAX3cRPd9Pg1FTpSMJmUGzhbuF5pDThRNXhvvhOUBKrh3Fse8NqrcRNC8bzNdkETMjSLRPjeRLr8UjMtaUhcEqaaH/FK6HGFQ0kDtkSSbHHKEKfO8wbgMxBD3W36iY543ba4+P/YfD0hU9PWVq09bb8Fzj0bsEaV8neotqGtm+DHeIxqMpAxJhuh5zQx93RM/fmDygjIgTNg/1T3lqF3jnYcluEkvpBUJp9q1PPWHYOw95juVzxMn4J3qD/PVkD4kjU8JSfOfL2tI89UBO6PC1xvphaLa8rwOOGdhEN8sNmIU502auqfzWu7c9fjoo8DvN/oLXd3zRT1+bk8FGXUL6kYloKyxvPRUYOCLgRDzKtmEL5Rpiw+/+WIw8Dbh2X9OVXoedQHpd28TJv40srP1GfJ1JkuHsrKSu/anYeQxJDdfGeWAd6yAoyo5POjKY4iZT5Q8/gjy3+GI+mJHvsWf69onip3Xl+xwg3zWA1a44Z1cfGleXyz92oDTRAOd1L3l0AwpXl3G+bwUuHS/NraeezxCu/eJSdiVlh5GAOXG49I991j7JiYuSqPNcIK78HTMcLoETl63j8M/nuqbWIChWXKvOn7dhHqSkHuLTLEss9ddx7/JzkMp3fuyIP/SpI4B8R+bbtCb6IbZlyTL2qd8mIbu98Lhy/LVSRKvGf6bN/xLC/SgTVL+EyWZ1h/b7dJbbpcf690rJ+/d6Vhbmd3yoC3eR3ifNJ+kze9TPwBrtINu+Qj/Ai/oX+Dn/fM92X++r/4veBvhF7xv8fPfKPkF78zU3Hse462gX/De089/s+sXvLv2C97Oq+EjpHthv38Yr6f19Ni3/TSY9IqSWo5TOEhl+a1vydZwKhK+B/wL3nT+Be9y/4K31Z+k/Oa7D5PWun3HnlF/2K/NAVVoZ3jEZlVY6n/rgSj81TMoMmtI57V4fAY0MjOWsqtkg3bZzcdQOzt58E4d8PC56r0Inr9/mCEj7AwZPZtQmJ6Hd+6a79Vyd7rVPty43XuX6fer1bsVHqjg+X5hy33CCg9UcHeIYhHGiO1q9iJoYwDiEMabRqOKW7/QwMoxx3ONmFfwdCP8xUtNxvTF0NtVO4Zr7ayjGjnhU79VrWAKtnAfZMD2NpEqFRLb+Jnl+O4tYuRW5dsN794OeHMQPj1NZtWYjOqMxEqcyIHHXFVhMsIVUQkLmceQNLDLHqm8PSCrCiB1UfJnpd5MATjzCVtM7BNlRrC83V+AEXGRFbkTljh3YTkX4X+gOydPr6bx+pIGjTIWVa1BOAPpCZ86/urhsxHAlU+VOU7p1yYN7YcyAmgPKQurqB3ppOhNexQj0N7o6/9yeO7pkf2Y6ajZEWYcwZjwSZys3ML7EWjuKleBSk7fRN9rFMoItIbn52tiXmdIxY9gYWsOgDDy81Y15ve+FI0XZFM9x3MHT7DRi5HfIoaJu6e1WDZUtmc5QW0sF0wK/Rj5l1r+YMRwZdXs0YCVGSUzh1ZRmu9cm8GyAzTb3c0lZg5GTD1opXAzi4crPSWIB+dsEzItC2fssiuak+lKhRrNpBQ0qK6mxCV998TeR1i0zGFLdW0o8LhVP4AXoO2qraFpsbfXKsgpuWOEXe/fm6aqWuagBYm/r/b2z+uGRkFONwV6QSt9vRdMWzMBIRvCeOR+dSmIweKf2AgJs9Y06BX6FErBbtcd0bIkMybtRt52fXzTZrTeelE3JjMlyyr69ZD/gR0hSsWAkBsAAAAASUVORK5CYII="></img>
+                </div>
+                <span class="ml-5 text-xl">𝙯𝙤𝙢𝙖𝙩𝙤</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <div
+                    class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap mb-2 flex-wrap justify-center items-end md:justify-start">
+                    <form class="search" style="display: flex;" action="http://localhost:4000/location" method="POST">
+                        <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+                            <input type="text" id="footer-field" name="search" placeholder="Enter the city"
+                                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                        <button
+                            class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                            type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-mdb-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="4"
+                aria-label="Slide 5"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="5"
+                aria-label="Slide 6"></button>
+            <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="6"
+                aria-label="Slide 7"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/crop1.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>The burger COmbO with French Fries</h5>
+                    <p>Hungry? what are you waiting for!</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/crop2.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>PIZZA is the first LOVE</h5>
+                    <p>Raady to share a slice with your friends?</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/crop3.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>A team of proffesionals works for you everyday :)</h5>
+                    <p>Let's drive a good taste</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/chick.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>WINNER WINNER! CHICKEN DINNER!</h5>
+                    <p>Even the water in you mouth is calling that leg piece!</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/crop5.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Your first choice Ever!</h5>
+                    <p>Let's start</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/c8.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Your dinner is waiting for you and your relatives.</h5>
+                    <p>Call over the friends and family today!</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="max-height: 600px;" data-mdb-interval="3000">
+                <img src="../media/bur.jpg" class="d-block w-100" alt="..." height="200x" />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Finally! I met my dream</h5>
+                    <p>Extra loaded burger for extra love for burger</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions"
+            data-mdb-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions"
+            data-mdb-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+
+    <div class=" d-flex mt-5">
+        <div class="col">
+            <a href="https://www.zomato.com/ncr/delivery-in-gurgaon?dishv2_id=279f4c1b096489e724b12e6643ebfb3a_2">
+                <div style="margin: 0px 30px" class="card ml-3 h-100">
+                    <img src="../media/z6cr.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Beverages</h5>
+                        <p class="card-text">
+                            Common types of drinks include plain drinking water, milk, coffee, tea, hot 
+                            chocolate, juice and soft drinks. In addition, alcoholic drinks such as wine, 
+                            beer, and liquor, which contain the drug ethanol, have been part of human culture 
+                            for more than 8,000 years.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">The world is waiting for you to have a sip</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a
+                href="https://www.zomato.com/ncr/gurgaon-restaurants?place_name=Delhi+NCR&dishv2_id=eb2ef145c0fcad44dbb4ed26aad1527d_2">
+                <div style="margin: 0px 10px" class="card h-100">
+                    <img src="../media/z14.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Rolls</h5>
+                        <p class="card-text">
+                            Roll is a delectable North Indian recipe made using all purpose flour, stir-fried 
+                            chicken, yoghurt and a variety of vegetables rolled into paranthas.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Criziest Rock and Rolls</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a
+                href="https://www.zomato.com/ncr/dine-out-in-gurgaon?dishv2_id=04e1dbc0ec30031e5f26d0bef922ea0c_2">
+                <div style="margin: 0px 30px" class="card mr-3 h-100">
+                    <img src="../media/z8crop.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza</h5>
+                        <p class="card-text">
+                            Other traditional pizzas include pizza alla marinara, which is topped with 
+                            marinara sauce and is supposedly the most ancient tomato-topped pizza, pizza 
+                            capricciosa, which is prepared with mozzarella cheese, baked ham, mushroom, 
+                            artichoke, and tomato, and pizza pugliese, prepared with tomato, mozzarella, 
+                            and onions.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">The tastiest crispiest PIZZA</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+     <div class="d-flex mt-5">
+        <div class="col">
+            <a href="https://www.zomato.com/ncr/delivery-in-gurgaon?dishv2_id=835ef6c0b2999746e9a5bdc11b3e528c_2">
+                <div style="margin: 0px 30px" class="card ml-3 h-100">
+                    <img src="../media/ge.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Breakfast</h5>
+                        <p class="card-text">
+                            Paratha, Idli, Dosa, Coffee, Tea..It will help to clear the mind and increase energy. A good meal in the morning is 
+                            one that is higher in protein and lower in sugary carbs or mainly carbs. 
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Good morning! Breakfast is ready :)   </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a
+                href="https://www.zomato.com/ncr/dine-out-in-gurgaon?dishv2_id=d9ed7694f0cdbc0ce83246bc1db2d789_2">
+                <div style="margin: 0px 10px" class="card h-100">
+                    <img src="../media/z2.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Meals</h5>
+                        <p class="card-text">
+                            Numerous studies show that eating together not only is an important aspect of 
+                            family life, but helps make weight control easier.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Dinner or Lunch, everything is ready :)</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a
+                href="https://www.zomato.com/ncr/dine-out-in-gurgaon?dishv2_id=04e1dbc0ec30031e5f26d0bef922ea0c_2">
+                <div style="margin: 0px 30px" class="card mr-3 h-100">
+                    <img src="../media/pan.jpg" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Paneer</h5>
+                        <p class="card-text">
+                            Delicious Shaahi, Tandoori, Kadhai, Fried, Manchurian, Tawa, Lazeez anner is waitin 
+                            for you. It is a non-aged, non-melting soft cheese made by curdling milk with a fruit- 
+                            or vegetable-derived acid, such as lemon juice. Its acid-set form (cheese curd) before 
+                            pressing is called chhena.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Veggies your startes are ready!</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- <center>
+        <div class="data">
+            <% for (i of data) {%>
+            <a href=<%= i.url %>>
+                <div class="box">
+                    <div class="image" style="width: 400px; height: 240px; border: 2px solid black; border-radius:
+                            20px 0px 0px 20px;"> -->
+                        <!-- <img src=<%= i.featured_photo %> ></img> -->
+                        <!-- <% if (i.Image != '' ){ %>
+                        <img src=<%= i.Image %>>
+                        <% } else { %>
+                        <img src="http://cheersbar.com.au/wp-content/uploads/2016/01/CheersBar-Food-76.jpg"
+                            alt=""></img>
+                        <% } %>
+                    </div>
+                    <div class="title">
+                        <h2> <% i.Name %> </h2>
+                        <div>
+                            <h3> <% i.Address %></h3>
+                            <hr>
+                            <table class="names">
+                                <tr>
+                                    <td class="key">Cuisines :</td>
+                                    <td> <%= i.cuisines %> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="key">Average Cost for Two :</td>
+                                    <td> <%= i.average_cost_for_two %> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="key">Price Range :</td>
+                                    <td> <%= i.price_range %> </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="key">Has Online Delivery :</td>
+                                    <td> <%= i.has_online_delivery %> </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <% } %>
+        </div>
+    </center> -->
+
+    <!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Form -->
+    <section class="">
+      <form action="">
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-5 col-12">
+            <!-- Email input -->
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example2" class="form-control" />
+              <label class="form-label" for="form5Example2">Email address</label>
+            </div>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </form>
+    </section>
+    <!-- Section: Form -->
+
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Links</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white">Link 1</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 2</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 3</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">Link 4</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Anmol Mehra:
+    <a class="text-white" href="https://www.zomato.com/">Zomato.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+</body>
+
+</html>
